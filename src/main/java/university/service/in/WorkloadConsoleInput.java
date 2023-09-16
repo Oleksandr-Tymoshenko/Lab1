@@ -5,6 +5,8 @@ import university.Teacher;
 import university.Workload;
 import university.service.DisciplineHandler;
 import university.service.DisciplineStrategyImpl;
+import university.service.in.exceptionhandler.InputExceptionHandler;
+import university.service.in.exceptionhandler.InputExceptionHandlerImpl;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -12,11 +14,13 @@ import java.util.stream.IntStream;
 
 public class WorkloadConsoleInput implements WorkloadInput {
     private final List<DisciplineHandler> disciplineHandlerList;
+    private final InputExceptionHandler inputExceptionHandler;
     private final Scanner in;
 
     public WorkloadConsoleInput(List<DisciplineHandler> disciplineHandlerList) {
         this.disciplineHandlerList = disciplineHandlerList;
         in = new Scanner(System.in);
+        inputExceptionHandler = new InputExceptionHandlerImpl();
     }
 
     @Override
@@ -27,20 +31,36 @@ public class WorkloadConsoleInput implements WorkloadInput {
                 .map(s -> s.replaceAll("Handler", ""))
                 .forEach(System.out::println);
         System.out.print("Input a number: ");
-        int num = in.nextInt();
-        Discipline discipline = new DisciplineStrategyImpl(disciplineHandlerList)
-                .getDiscipline(num).getDiscipline();
+        int num;
+        Discipline discipline;
+        while (true) {
+            try {
+                num = inputExceptionHandler.ConsoleReadInteger();
+                discipline = new DisciplineStrategyImpl(disciplineHandlerList)
+                        .getDiscipline(num).getDiscipline();
+                break;
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("Incorrect input value! Try again");
+                System.out.print("--> ");
+            }
+        }
+
         System.out.print("Teacher roll number: ");
-        long rollNumber = in.nextLong();
+        long rollNumber = inputExceptionHandler.ConsoleReadLong();
+
         System.out.print("Teacher name: ");
-        String name = in.next();
+        String name = in.nextLine();
+
         System.out.println("Choose teacher position: ");
         Arrays.stream(Teacher.Position.values()).forEach(System.out::println);
-        String position = in.next().toUpperCase();
-        Teacher teacher = new Teacher(rollNumber, name, Teacher.Position.valueOf(position));
+        Teacher.Position position = (Teacher.Position) inputExceptionHandler
+                .ConsoleReadEnum(Teacher.Position.class);
+        Teacher teacher = new Teacher(rollNumber, name, position);
+
         System.out.println("Choose workload type: ");
         Arrays.stream(Workload.WorkloadType.values()).forEach(System.out::println);
-        String workloadType = in.next().toUpperCase();
-        return new Workload(discipline, teacher, Workload.WorkloadType.valueOf(workloadType));
+        Workload.WorkloadType workloadType = (Workload.WorkloadType) inputExceptionHandler
+                .ConsoleReadEnum(Workload.WorkloadType.class);
+        return new Workload(discipline, teacher, workloadType);
     }
 }

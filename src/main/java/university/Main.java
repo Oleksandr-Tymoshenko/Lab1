@@ -8,8 +8,10 @@ import university.service.in.WorkloadConsoleInput;
 import university.service.out.WorkLoadFormatOutput;
 import university.service.out.WorkLoadInlineOutput;
 import university.service.out.WorkLoadOutput;
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.ConsoleHandler;
 
 public class Main {
     private static final List<DisciplineHandler> DISCIPLINE_HANDLER_LIST;
