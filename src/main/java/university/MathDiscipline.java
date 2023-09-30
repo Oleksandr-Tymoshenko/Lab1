@@ -13,9 +13,9 @@ public class MathDiscipline extends Discipline implements FormatPrintable {
 
     @Override
     public String toString() {
-        return super.toString() + "MathDiscipline{" +
-                "calculationTasksNumber=" + calculationTasksNumber +
-                '}';
+        return super.toString() + "MathDiscipline{"
+                + "calculationTasksNumber=" + calculationTasksNumber
+                + '}';
     }
 
     @Override

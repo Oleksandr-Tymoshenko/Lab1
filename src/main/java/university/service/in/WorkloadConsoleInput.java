@@ -1,5 +1,9 @@
 package university.service.in;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.IntStream;
 import university.Discipline;
 import university.Teacher;
 import university.Workload;
@@ -7,10 +11,6 @@ import university.service.DisciplineHandler;
 import university.service.DisciplineStrategyImpl;
 import university.service.in.exceptionhandler.InputExceptionHandler;
 import university.service.in.exceptionhandler.InputExceptionHandlerImpl;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-import java.util.stream.IntStream;
 
 public class WorkloadConsoleInput implements WorkloadInput {
     private final List<DisciplineHandler> disciplineHandlerList;
@@ -35,7 +35,7 @@ public class WorkloadConsoleInput implements WorkloadInput {
         Discipline discipline;
         while (true) {
             try {
-                num = inputExceptionHandler.ConsoleReadInteger();
+                num = inputExceptionHandler.consoleReadInteger();
                 discipline = new DisciplineStrategyImpl(disciplineHandlerList)
                         .getDiscipline(num).getDiscipline();
                 break;
@@ -46,7 +46,7 @@ public class WorkloadConsoleInput implements WorkloadInput {
         }
 
         System.out.print("Teacher roll number: ");
-        long rollNumber = inputExceptionHandler.ConsoleReadLong();
+        long rollNumber = inputExceptionHandler.consoleReadLong();
 
         System.out.print("Teacher name: ");
         String name = in.nextLine();
@@ -54,13 +54,13 @@ public class WorkloadConsoleInput implements WorkloadInput {
         System.out.println("Choose teacher position: ");
         Arrays.stream(Teacher.Position.values()).forEach(System.out::println);
         Teacher.Position position = (Teacher.Position) inputExceptionHandler
-                .ConsoleReadEnum(Teacher.Position.class);
+                .consoleReadEnum(Teacher.Position.class);
         Teacher teacher = new Teacher(rollNumber, name, position);
 
         System.out.println("Choose workload type: ");
         Arrays.stream(Workload.WorkloadType.values()).forEach(System.out::println);
         Workload.WorkloadType workloadType = (Workload.WorkloadType) inputExceptionHandler
-                .ConsoleReadEnum(Workload.WorkloadType.class);
+                .consoleReadEnum(Workload.WorkloadType.class);
         return new Workload(discipline, teacher, workloadType);
     }
 }

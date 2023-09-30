@@ -1,11 +1,11 @@
 package university.service;
 
+import java.util.Arrays;
+import java.util.Scanner;
 import university.Discipline;
 import university.MathDiscipline;
 import university.service.in.exceptionhandler.InputExceptionHandler;
 import university.service.in.exceptionhandler.InputExceptionHandlerImpl;
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class MathDisciplineHandler implements DisciplineHandler {
     private final Scanner in;
@@ -22,16 +22,16 @@ public class MathDisciplineHandler implements DisciplineHandler {
         String name = in.nextLine();
 
         System.out.print("Discipline hours: ");
-        int hours = inputExceptionHandler.ConsoleReadInteger();
+        int hours = inputExceptionHandler.consoleReadInteger();
 
         System.out.println("Choose discipline control form: ");
         Arrays.stream(Discipline.ControlForm.values())
                 .forEach(System.out::println);
         Discipline.ControlForm controlForm = (Discipline.ControlForm) inputExceptionHandler
-                .ConsoleReadEnum(Discipline.ControlForm.class);
+                .consoleReadEnum(Discipline.ControlForm.class);
 
         System.out.println("Calculation task number: ");
-        int taskNumber = inputExceptionHandler.ConsoleReadInteger();
+        int taskNumber = inputExceptionHandler.consoleReadInteger();
         return new MathDiscipline(name, hours, controlForm, taskNumber);
     }
 }

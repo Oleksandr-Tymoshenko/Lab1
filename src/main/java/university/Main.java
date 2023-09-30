@@ -1,5 +1,7 @@
 package university;
 
+import java.util.ArrayList;
+import java.util.List;
 import university.service.ComputerDisciplineHandler;
 import university.service.DisciplineHandler;
 import university.service.GeneralDisciplineHandler;
@@ -8,10 +10,6 @@ import university.service.in.WorkloadConsoleInput;
 import university.service.out.WorkLoadFormatOutput;
 import university.service.out.WorkLoadInlineOutput;
 import university.service.out.WorkLoadOutput;
-import java.io.Console;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.ConsoleHandler;
 
 public class Main {
     private static final List<DisciplineHandler> DISCIPLINE_HANDLER_LIST;
@@ -25,9 +23,9 @@ public class Main {
 
     public static void main(String[] args) {
         Workload workload = new WorkloadConsoleInput(DISCIPLINE_HANDLER_LIST).input();
-        WorkLoadOutput FORMAT_OUTPUT = new WorkLoadFormatOutput();
-        FORMAT_OUTPUT.print(workload);
-        FORMAT_OUTPUT = new WorkLoadInlineOutput();
-        FORMAT_OUTPUT.print(workload);
+        WorkLoadOutput formatOutput = new WorkLoadFormatOutput();
+        formatOutput.print(workload);
+        formatOutput = new WorkLoadInlineOutput();
+        formatOutput.print(workload);
     }
 }

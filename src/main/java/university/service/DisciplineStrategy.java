@@ -1,5 +1,5 @@
 package university.service;
 
 public interface DisciplineStrategy {
-    DisciplineHandler getDiscipline (Integer index);
+    DisciplineHandler getDiscipline(Integer index);
 }

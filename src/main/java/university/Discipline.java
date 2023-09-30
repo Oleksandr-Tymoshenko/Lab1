@@ -3,9 +3,9 @@ package university;
 import university.service.in.FormatPrintable;
 
 public abstract class Discipline implements FormatPrintable {
-    String name;
-    int hours;
-    ControlForm controlForm;
+    private String name;
+    private int hours;
+    private ControlForm controlForm;
 
     public Discipline(String name, int hours, ControlForm controlForm) {
         this.name = name;
@@ -29,10 +29,10 @@ public abstract class Discipline implements FormatPrintable {
     @Override
     public String toString() {
         return getClass().getSimpleName()
-                + name + '\'' +
-                ", hours=" + hours +
-                ", controlForm=" + controlForm +
-                '}';
+                + name + '\''
+                + ", hours=" + hours
+                + ", controlForm=" + controlForm
+                + '}';
     }
 
     @Override

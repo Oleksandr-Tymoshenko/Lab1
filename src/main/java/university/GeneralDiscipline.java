@@ -13,9 +13,9 @@ public class GeneralDiscipline extends Discipline implements FormatPrintable {
 
     @Override
     public String toString() {
-        return super.toString() + "GeneralDiscipline{" +
-                "lecturesSeminarsRatio=" + lecturesSeminarsRatio +
-                '}';
+        return super.toString() + "GeneralDiscipline{"
+                + "lecturesSeminarsRatio=" + lecturesSeminarsRatio
+                + '}';
     }
 
     @Override

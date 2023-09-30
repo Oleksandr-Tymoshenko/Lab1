@@ -15,15 +15,14 @@ public class Workload implements FormatPrintable {
         this.hours = discipline.getHours();
     }
 
-
     @Override
     public String toString() {
-        return "Workload{" +
-                "discipline=" + discipline +
-                ", teacher=" + teacher +
-                ", workloadType=" + workloadType +
-                ", hours=" + hours +
-                '}';
+        return "Workload{"
+                + "discipline=" + discipline
+                + ", teacher=" + teacher
+                + ", workloadType=" + workloadType
+                + ", hours=" + hours
+                + '}';
     }
 
     @Override

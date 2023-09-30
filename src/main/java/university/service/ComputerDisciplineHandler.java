@@ -1,11 +1,11 @@
 package university.service;
 
+import java.util.Arrays;
+import java.util.Scanner;
 import university.ComputerDiscipline;
 import university.Discipline;
 import university.service.in.exceptionhandler.InputExceptionHandler;
 import university.service.in.exceptionhandler.InputExceptionHandlerImpl;
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class ComputerDisciplineHandler implements DisciplineHandler {
     private final Scanner in;
@@ -22,16 +22,16 @@ public class ComputerDisciplineHandler implements DisciplineHandler {
         String name = in.nextLine();
 
         System.out.print("Discipline hours: ");
-        int hours = inputExceptionHandler.ConsoleReadInteger();
+        int hours = inputExceptionHandler.consoleReadInteger();
 
         System.out.println("Choose discipline control form: ");
         Arrays.stream(Discipline.ControlForm.values())
                 .forEach(System.out::println);
         Discipline.ControlForm controlForm = (Discipline.ControlForm) inputExceptionHandler
-                .ConsoleReadEnum(Discipline.ControlForm.class);
+                .consoleReadEnum(Discipline.ControlForm.class);
 
         System.out.println("Machine resource time: ");
-        int resourceTime = inputExceptionHandler.ConsoleReadInteger();
+        int resourceTime = inputExceptionHandler.consoleReadInteger();
 
         System.out.print("Base product name: ");
         String productName = in.nextLine();

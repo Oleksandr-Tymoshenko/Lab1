@@ -22,11 +22,11 @@ public class Teacher implements FormatPrintable {
 
     @Override
     public String toString() {
-        return "Teacher{" +
-                "rollNumber=" + rollNumber +
-                ", nameSurname='" + nameSurname + '\'' +
-                ", position=" + position +
-                '}';
+        return "Teacher{"
+                + "rollNumber=" + rollNumber
+                + ", nameSurname='" + nameSurname + '\''
+                + ", position=" + position
+                + '}';
     }
 
     @Override

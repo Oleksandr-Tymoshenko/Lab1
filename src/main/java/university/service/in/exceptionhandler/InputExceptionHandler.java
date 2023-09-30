@@ -1,11 +1,11 @@
 package university.service.in.exceptionhandler;
 
 public interface InputExceptionHandler {
-    int ConsoleReadInteger();
+    int consoleReadInteger();
 
-    long ConsoleReadLong();
+    long consoleReadLong();
 
-    double ConsoleReadDouble();
+    double consoleReadDouble();
 
-    Object ConsoleReadEnum(Class<?> enumClass);
+    Object consoleReadEnum(Class<?> enumClass);
 }

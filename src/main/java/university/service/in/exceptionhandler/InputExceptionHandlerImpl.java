@@ -1,4 +1,5 @@
 package university.service.in.exceptionhandler;
+
 import java.lang.reflect.Method;
 import java.util.Scanner;
 
@@ -10,12 +11,12 @@ public class InputExceptionHandlerImpl implements InputExceptionHandler {
     }
 
     @Override
-    public int ConsoleReadInteger() {
+    public int consoleReadInteger() {
         while (true) {
             String input = in.nextLine();
             try {
                 return Integer.parseInt(input);
-            } catch (NumberFormatException  e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Incorrect input value! Try again");
                 System.out.print("--> ");
             }
@@ -23,7 +24,7 @@ public class InputExceptionHandlerImpl implements InputExceptionHandler {
     }
 
     @Override
-    public long ConsoleReadLong() {
+    public long consoleReadLong() {
         while (true) {
             String input = in.nextLine();
             try {
@@ -36,7 +37,7 @@ public class InputExceptionHandlerImpl implements InputExceptionHandler {
     }
 
     @Override
-    public double ConsoleReadDouble() {
+    public double consoleReadDouble() {
         while (true) {
             String input = in.nextLine();
             try {
@@ -49,7 +50,7 @@ public class InputExceptionHandlerImpl implements InputExceptionHandler {
     }
 
     @Override
-    public Object ConsoleReadEnum(Class<?> enumClass) {
+    public Object consoleReadEnum(Class<?> enumClass) {
         while (true) {
             String enumInput = in.nextLine().toUpperCase();
             try {

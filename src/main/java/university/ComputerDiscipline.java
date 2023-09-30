@@ -15,10 +15,10 @@ public class ComputerDiscipline extends Discipline implements FormatPrintable {
 
     @Override
     public String toString() {
-        return super.toString() + "ComputerDiscipline{" +
-                "machineTime=" + machineTime +
-                ", baseProductName='" + baseProductName + '\'' +
-                '}';
+        return super.toString() + "ComputerDiscipline{"
+                + "machineTime=" + machineTime
+                + ", baseProductName='" + baseProductName + '\''
+                + '}';
     }
 
     @Override
