@@ -1,9 +1,13 @@
-package university;
+package university.model;
 
-import university.service.in.FormatPrintable;
+import java.io.Serializable;
+import university.service.out.FormatPrintable;
 
-public class MathDiscipline extends Discipline implements FormatPrintable {
-    private final int calculationTasksNumber;
+public class MathDiscipline extends Discipline implements FormatPrintable, Serializable {
+    private int calculationTasksNumber;
+
+    public MathDiscipline() {
+    }
 
     public MathDiscipline(String name, int hours, ControlForm controlForm,
                           int calculationTasksNumber) {
@@ -11,9 +15,17 @@ public class MathDiscipline extends Discipline implements FormatPrintable {
         this.calculationTasksNumber = calculationTasksNumber;
     }
 
+    public int getCalculationTasksNumber() {
+        return calculationTasksNumber;
+    }
+
+    public void setCalculationTasksNumber(int calculationTasksNumber) {
+        this.calculationTasksNumber = calculationTasksNumber;
+    }
+
     @Override
     public String toString() {
-        return super.toString() + "MathDiscipline{"
+        return super.toString()
                 + "calculationTasksNumber=" + calculationTasksNumber
                 + '}';
     }

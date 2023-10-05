@@ -1,7 +1,7 @@
 package university.service.out;
 
-import university.Workload;
+import university.model.Workload;
 
 public interface WorkLoadOutput {
-    void print(Workload workload);
+    void out(Workload workload);
 }

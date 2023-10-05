@@ -1,15 +1,35 @@
-package university;
+package university.model;
 
-import university.service.in.FormatPrintable;
+import java.io.Serializable;
+import university.service.out.FormatPrintable;
 
-public abstract class Discipline implements FormatPrintable {
+public abstract class Discipline implements FormatPrintable, Serializable {
     private String name;
     private int hours;
     private ControlForm controlForm;
 
+    public Discipline() {
+    }
+
     public Discipline(String name, int hours, ControlForm controlForm) {
         this.name = name;
         this.hours = hours;
+        this.controlForm = controlForm;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
+    public ControlForm getControlForm() {
+        return controlForm;
+    }
+
+    public void setControlForm(ControlForm controlForm) {
         this.controlForm = controlForm;
     }
 
@@ -28,11 +48,10 @@ public abstract class Discipline implements FormatPrintable {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName()
-                + name + '\''
+        return "type=" + getClass().getSimpleName()
+                + ", name=" + name
                 + ", hours=" + hours
-                + ", controlForm=" + controlForm
-                + '}';
+                + ", controlForm=" + controlForm.name() + ", ";
     }
 
     @Override

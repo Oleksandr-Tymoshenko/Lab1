@@ -1,7 +1,7 @@
 package university.service.in;
 
-import university.Workload;
+import university.model.Workload;
 
 public interface WorkloadInput {
-    Workload input();
+    Workload load();
 }
